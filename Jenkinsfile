@@ -2,18 +2,18 @@ pipeline {
     agent any
     
     stages {
-        stage('Build') {
+        stage('Docker Setup') {
             steps {
-                sh 'echo "Building.."'
-                sh 'whoami'
+                sh 'sudo apt update '
+                sh 'sudo apt install docker'
             }
         }
 
         stage('test') {
             steps {
                 sh 'echo "Testing..."'
-                sh 'python --version'
-                sh 'whoami'
+                sh 'sudo apt install python'
+                sh 'python --version'                
             }
         }
     }
